@@ -7,8 +7,10 @@
 | email                 | string | null: false |
 | password              | string | null: false |
 | password_confirmation | string | null: false |
-| name                  | string | null: false |
-| name_reading          | string | null: false |
+| first_name            | string | null: false |
+| family_name           | string | null: false |
+| first_name_reading    | string | null: false |
+| family_name_reading   | string | null: false |
 | birthday              | date   | null: false |
 
 ### Association
@@ -39,7 +41,6 @@ has_one :purchase
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
-| price   | integer    | null: false                    |
 | user_id | references | null: false, foreign_key: true |
 | item_id | references | null: false, foreign_key: true |
 
