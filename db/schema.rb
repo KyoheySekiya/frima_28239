@@ -35,11 +35,11 @@ ActiveRecord::Schema.define(version: 2020_08_14_073052) do
     t.datetime "remember_created_at"
     t.string "nickname", null: false
     t.string "email", null: false
-    t.string "first_name", null: false
     t.string "familiy_name", null: false
-    t.string "first_name_reading", null: false
+    t.string "first_name", null: false
     t.string "familiy_name_reading", null: false
-    t.string "birthday", null: false
+    t.string "first_name_reading", null: false
+    t.date "birthday", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
