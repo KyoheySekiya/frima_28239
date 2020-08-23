@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  get 'root', to:'items#index'
+  devise_for :users
+  root to:'items#index'
+  post '/users/sign_up', to:'users#create'
+  resources :users, only: [:show, :create]
+
 end
