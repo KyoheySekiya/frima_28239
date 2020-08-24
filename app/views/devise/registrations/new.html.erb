@@ -1,7 +1,6 @@
 <%= render "shared/second-header"%>
 
 <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
-  <%# <%= devise_error_messages! %>
   <%= render 'shared/error_messages', model: f.object%>
   <div class='form-wrap'>
     <div class='form-header'>
@@ -10,9 +9,6 @@
       </h1>
     </div>
 
-    <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
-    <%# render 'shared/error_messages', model: f.object %>
-    <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
 
     <div class="form-group">
       <div class='form-text-wrap'>
