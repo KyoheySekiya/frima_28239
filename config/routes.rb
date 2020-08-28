@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   post '/users/sign_up', to:'users#create'
   get '/items/new', to:'items#new'
   resources :users, only: [:show, :create]
-  resources :items, only: [:edit, :show, :create, :destroy]
+  resources :items, only: [:edit, :show, :create, :destroy, :index]
 end

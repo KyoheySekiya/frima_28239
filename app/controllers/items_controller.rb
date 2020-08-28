@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   def edit
     @item = Item.find(params[:id])
   end
-  
+
   def index
     @item = Item.all
   end
@@ -15,6 +15,7 @@ class ItemsController < ApplicationController
   end
 
   def create
+    # @item = Item.create(item_params)
     @item = Item.new(item_params)
     if @item.save
       redirect_to root_path
@@ -36,7 +37,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name,:text,:category_id,:condition_id,:delivery_fee_id,:ship_from_location_id,:delivery_date_id, images: []).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :text, :category_id, :condition_id, :delivery_fee_id, :ship_from_location_id, :delivery_date_id, :price, images: []).merge(user_id: current_user.id)
   end
-
 end
