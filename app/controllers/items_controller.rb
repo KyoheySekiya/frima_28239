@@ -1,10 +1,6 @@
 class ItemsController < ApplicationController
-  def edit
-    @item = Item.find(params[:id])
-  end
 
   def index
-    @item = Item.all
   end
 
   def new
@@ -21,16 +17,6 @@ class ItemsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def destroy
-    @item = Item.find(params[:id])
-    @item.destroy
-    redirect_to items_path
-  end
-
-  def update
-    Item.find(params[:id]).update(item_params)
   end
 
   private
