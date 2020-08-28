@@ -73,5 +73,50 @@ RSpec.describe Item, type: :model do
       @item.valid?
       expect(@item.errors.full_messages).to include('Price input value is outside the range of ¥300~9,999,999')
     end
+
+    it '画像が存在すれば登録できること' do
+      @item.images.attach(fixture_file_upload('public/images/test_image.png'))
+      expect(@item).to be_valid
+    end
+
+    it '商品名が存在すれば登録できること' do
+      @item.name = 'test_name'
+      expect(@item).to be_valid
+    end
+
+    it '商品の説明が存在すれば登録できること' do
+      @item.name = 'test_name'
+      expect(@item).to be_valid
+    end
+
+    it 'カテゴリーの情報が --- 以外であれば登録できること' do
+      @item.category_id = 2
+      expect(@item).to be_valid
+    end
+
+    it '商品の状態についての情報が --- 以外であれば登録できること' do
+      @item.condition_id = 2
+      expect(@item).to be_valid
+    end
+
+    it '配送料の負担についての情報が --- 以外であれば登録できること' do
+      @item.delivery_fee_id = 2
+      expect(@item).to be_valid
+    end
+
+    it '発送元の地域についての情報が --- 以外であれば登録できること' do
+      @item.ship_from_location_id = 2
+      expect(@item).to be_valid
+    end
+
+    it '発送までの日数についての情報が --- 以外であれば登録できること' do
+      @item.delivery_date_id = 3
+      expect(@item).to be_valid
+    end
+
+    it '価格の範囲が、¥300~¥9,999,999の間であれば登録できること' do
+      @item.price = '1000'
+      expect(@item).to be_valid
+    end
   end
 end
