@@ -122,7 +122,7 @@
   <%# 商品一覧 %>
   <div class='item-contents'>
     <h2 class='title'>ピックアップカテゴリー</h2>
-    <%= link_to '新規投稿商品', items_new_path, class: "subtitle" %>
+    <%= link_to '新規投稿商品', new_item_path, class: "subtitle" %>
 
     <ul class='item-lists'>
     <% if @items.present? %>
@@ -178,7 +178,7 @@
 <div class='purchase-btn'>
   <span class='purchase-btn-text'>出品する</span>
     <% if user_signed_in? %>
-      <%= link_to items_new_path do %>
+      <%= link_to new_item_path do %>
       <%= image_tag 'camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
       <% end %>
     <% else %>

@@ -54,7 +54,7 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
-  gem 'pry-rails'
+  # gem 'pry-rails'
   
 
   end
@@ -68,6 +68,6 @@ end
 
 gem 'devise'
 gem 'active_hash'
-
+gem "pry-rails"
 gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
