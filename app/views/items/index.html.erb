@@ -119,74 +119,61 @@
     </ul>
   </div>
   <%# //FURIMAの特徴 %>
-<% if false %>
   <%# 商品一覧 %>
   <div class='item-contents'>
     <h2 class='title'>ピックアップカテゴリー</h2>
     <%= link_to '新規投稿商品', items_new_path, class: "subtitle" %>
 
     <ul class='item-lists'>
-
-      <%# 商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
-      <%= link_to items_new_path do %>
-        <% if @item.attached? %>
-          <% @item.each do |item| %>
-            <li class='list'>
-              <div class='item-img-content'>
-                <% if @item.images.attached? %>
-                  <% @item.images.each do |image| %>
-                    <%= image_tag image %>
-                  <% end %>
-                <% end %>
-                <%# 商品が売れていればsold outの表示 %>
-                <div class='sold-out'>
-                  <span>Sold Out!!</span>
-                </div>
-                <%# //商品が売れていればsold outの表示 %>
-              </div>
-              <div class='item-info'>
-                <h3 class='item-name'>
-                  <%= "商品名" %>
-                </h3>
-                <div class='item-price'>
-                  <span><%= "販売価格" %>円<br>(税込み)</span>
-                  <div class='star-btn'>
-                    <%= image_tag "star.png", class:"star-icon" %>
-                    <span class='star-count'>0</span>
-                  </div>
-                </div>
-              </div>
-            </li>
-          <% end %>
-          <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
-        <% else %>
-          <%# 商品がない場合のダミー %>
-          <%# 商品がある場合は表示されないようにしましょう %>
+    <% if @items.present? %>
+      <% @items.each do |item| %>
           <li class='list'>
-            <%= link_to '#' do %>
-              <%= image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class: "item-img" %>
-              <div class='item-info'>
-                <h3 class='item-name'>
-                  商品を出品してね！
-                </h3>
-                <div class='item-price'>
-                  <span>99999999円<br>(税込み)</span>
-                  <div class='star-btn'>
-                    <%= image_tag "star.png", class:"star-icon" %>
-                    <span class='star-count'>0</span>
-                  </div>
+            <div class='item-img-content'>
+              <% item.images.each do |image| %>
+                <%= image_tag image .variant(resize:'300x300')%>
+              <% end %>
+              <%# 商品が売れていればsold outの表示 %>
+              <div class='sold-out'>
+                <span>Sold Out!!</span>
+              </div>
+              <%# //商品が売れていればsold outの表示 %>
+            </div>
+            <div class='item-info'>
+              <h3 class='item-name'>
+                <%= item.name %>
+              </h3>
+              <div class='item-price'>
+                <span><%= item.price %>円<br>(税込み)</span>
+                <div class='star-btn'>
+                  <%= image_tag "star.png", class:"star-icon" %>
+                  <span class='star-count'>0</span>
                 </div>
               </div>
-            <% end %>
+            </div>
           </li>
-        <% end %>
-        <%# //商品がある場合は表示されないようにしましょう %>
-        <%# //商品がない場合のダミー %>
       <% end %>
+    <% else %>
+        <li class='list'>
+          <%= link_to '#' do %>
+            <%= image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class: "item-img" %>
+            <div class='item-info'>
+              <h3 class='item-name'>
+                商品を出品してね！
+              </h3>
+              <div class='item-price'>
+                <span>99999999円<br>(税込み)</span>
+                <div class='star-btn'>
+                  <%= image_tag "star.png", class:"star-icon" %>
+                  <span class='star-count'>0</span>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </li>
+    <% end %>
     </ul>
   </div>
   <%# //商品一覧 %>
-<% end %>
 </div>
 <div class='purchase-btn'>
   <span class='purchase-btn-text'>出品する</span>
