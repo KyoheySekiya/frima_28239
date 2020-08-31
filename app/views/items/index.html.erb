@@ -128,7 +128,7 @@
     <% if @items.present? %>
       <% @items.each do |item| %>
           <li class='list'>
-          <%= link_to "/items/#{item.id}", method: :get do %>
+          <%= link_to item_path(item.id), method: :get do %>
             <div class='item-img-content'>
               <% item.images.each do |image| %>
                 <%= image_tag image .variant(resize:'300x300')%>
