@@ -3,5 +3,11 @@ Rails.application.routes.draw do
   root to:'items#index'
   post '/users/sign_up', to:'users#create'
   resources :users, only: [:show, :create]
-  resources :items
+  resources :items do
+    resources :purchases, only:[:index, :create]
+    collection do
+      get 'search'
+    end
+  end
+
 end
