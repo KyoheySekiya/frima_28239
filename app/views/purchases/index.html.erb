@@ -32,8 +32,9 @@
         </p>
       </div>
       <%# /支払額の表示 %>
-    <%= form_with model: @purchase, id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
-      <%# <%= render 'shared/error_messages', model: f.object%> %>
+
+    <%= form_with url: item_purchases_path, id: 'charge-form', class: 'transaction-form-wrap', local: true do |f| %>
+    <%= render 'shared/error_messages', model: @purchase %>
       <%# カード情報の入力 %>
       <div class='credit-card-form'>
         <h1 class='info-input-haedline'>

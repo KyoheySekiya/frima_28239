@@ -2,6 +2,7 @@ class PurchasesController < ApplicationController
 
   def index
     @item = Item.find(params[:item_id])
+    @purchase = PurchaseAddress.new
   end
   
   def new
@@ -15,6 +16,7 @@ class PurchasesController < ApplicationController
       @purchase.save
       redirect_to root_path
     else
+      @item = Item.find(params[:item_id])
       render :index
     end
   end
