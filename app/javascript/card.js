@@ -28,10 +28,9 @@ const pay = () => {
         document.getElementById("charge-form").submit();
         document.getElementById("charge-form").reset();
       } else {
-        alert("カード情報が正しくありません。");
       }
     });
   });
 };
 
-window.addEventListener("load", pay);
+window.addEventListener("turbolinks:load", pay);
