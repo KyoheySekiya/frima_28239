@@ -2,6 +2,8 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   def index
     @items = Item.all.order('created_at DESC')
+    @purchases = Purchase.all
+    @purchase = Purchase.find_by(item_id: params[:item_id])
   end
 
   def new
@@ -9,6 +11,9 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @items = Item.all.order('created_at DESC')
+    @purchases = Purchase.all
+    @purchase = Purchase.find_by(item_id: params[:item_id])
   end
 
   def create

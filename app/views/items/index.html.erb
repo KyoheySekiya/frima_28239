@@ -123,25 +123,21 @@
   <div class='item-contents'>
     <h2 class='title'>ピックアップカテゴリー</h2>
     <%= link_to '新規投稿商品', new_item_path, class: "subtitle" %>
-
     <ul class='item-lists'>
     <% if @items.present? %>
       <% @items.each do |item| %>
-        <%# <% if items %> %>
           <li class='list'>
           <%= link_to item_path(item.id), method: :get do %>
             <div class='item-img-content'>
-              <% item.images.each do |image| %>
-                <%= image_tag image .variant(resize:'300x300')%>
+                <% item.images.each do |image| %>
+                  <%= image_tag image .variant(resize:'300x300')%>
+                <% end %>
+              <% if item.purchase %>
+                <div class='sold-out'>
+                  <span>Sold Out!!</span>
+                </div>
               <% end %>
-        <%# <% else %> %>
-              <%# 商品が売れていればsold outの表示 %>
-              <div class='sold-out'>
-                <span>Sold Out!!</span>
-              </div>
-              <%# //商品が売れていればsold outの表示 %>
             </div>
-        <%# <% end %> %>
             <div class='item-info'>
               <h3 class='item-name'>
                 <%= item.name %>
