@@ -36,3 +36,4 @@ const pay = () => {
   });
 };
 window.addEventListener("DOMContentLoaded", pay);
+
