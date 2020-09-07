@@ -83,5 +83,10 @@ RSpec.describe PurchaseAddress, type: :model do
       @purchaseadd.phone_number = '12312341234'
       expect(@purchaseadd).to be_valid
     end
+
+    it 'phone_numberがハイフンは不要で、11桁以内であれば登録できること' do
+      @purchaseadd.phone_number = '1212341234'
+      expect(@purchaseadd).to be_valid
+    end
   end
 end
