@@ -85,7 +85,7 @@ RSpec.describe Item, type: :model do
     end
 
     it '商品の説明が存在すれば登録できること' do
-      @item.name = 'test_name'
+      @item.text = 'texttext'
       expect(@item).to be_valid
     end
 
